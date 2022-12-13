@@ -1,15 +1,17 @@
 function randomNumber()
 {
-    let random = Math.floor(Math.random() * 100);
+    let random = Math.floor(Math.random() * 255);
 
-    if (random > 1 && random <= 100)
-    {
-        return random;
-    }
-    else
-    {
-        return 16;
-    }
+    // if (random > 1 && random <= 100)
+    // {
+    //     return random;
+    // }
+    // else
+    // {
+    //     return 16;
+    // }
+
+    return random;
 }
 
 function resetGrid(numOfColumns)
@@ -31,7 +33,10 @@ gridSize.addEventListener('click', () => {
 
     resetGrid(numOfColumns);
 
-    numOfColumns = randomNumber();
+    do{
+        numOfColumns = randomNumber();
+    } while (numOfColumns < 2 || numOfColumns > 100);
+
     makeGrid(numOfColumns);
 });
 
@@ -103,15 +108,21 @@ toggleLines.addEventListener('click', () => {
     }
 })
 
-let btnRgb = document.querySelector('.btn-rgb');
-btnRgb.addEventListener('click', () => {
-    let x = randomNumber();
-    let y = randomNumber();
-    let z = randomNumber();
+let btnRainbow = document.querySelector('.btn-rainbow');
+btnRainbow.addEventListener('click', () => {
+    
 
     for (let i = 0; i < totalNumOfBoxes; ++i)
     {
-    arrayOfBoxes[i].addEventListener('mouseover', () => {arrayOfBoxes[i].style.backgroundColor = `rgb(${x}, ${y}, ${z})`});
+    
+    arrayOfBoxes[i].addEventListener('mouseover', () => {
+        let x = randomNumber();
+        let y = randomNumber();
+        let z = randomNumber();
+        arrayOfBoxes[i].style.backgroundColor = `rgb(${x}, ${y}, ${z})`;
+    });
+
+    
     }
 })
 
