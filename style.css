@@ -30,8 +30,8 @@ h1 {
     display: flex;
     border: 35px solid tomato;
     border-radius: 20px;
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
 }
 
 .column {
